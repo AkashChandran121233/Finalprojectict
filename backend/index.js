@@ -1,15 +1,30 @@
 const express = require("express")
-const mongoose = require("mongoose")
 const cors = require("cors")
 const UserModel = require('./models/User')
 const BookModel = require('./models/Books');
 const RequestModel = require('./models/Request');
+const mongoose = require('mongoose');
+
+//const uri = "mongodb://aadarshnarayanps2005:3IsUdY4vqKvFbvEz@cluster0-shard-00-00.hokax.mongodb.net:27017,cluster0-shard-00-01.hokax.mongodb.net:27017,cluster0-shard-00-02.hokax.mongodb.net:27017/<database>?ssl=true&replicaSet=atlas-abcde-shard-0&authSource=admin&retryWrites=true&w=majority";
+// Connect to MongoDB Atlas
+/*mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => {
+    console.log("Connected to MongoDB Atlas!");
+})
+.catch((err) => {
+    console.error("Error connecting to MongoDB Atlas: ", err);
+});
+
+*/
 
 const app = express()
 app.use(express.json())
 app.use(cors())
 
-mongoose.connect("mongodb://127.0.0.1:27017/Library");
+mongoose.connect("mongodb+srv://aadarshnarayanps2005:3IsUdY4vqKvFbvEz@cluster0.hokax.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 
 
 app.post('/signup', async (req, res) => {
